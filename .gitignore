@@ -1,0 +1,28 @@
+# Environnements virtuels
+.venv/
+.env/
+
+# Fichiers Python compilés
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Fichiers de logs
+*.log
+
+# Caches
+*.pytest_cache/
+*.mypy_cache/
+.pytest_cache/
+
+# Notebooks checkpoints
+.ipynb_checkpoints/
+
+# Config d’éditeur
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
