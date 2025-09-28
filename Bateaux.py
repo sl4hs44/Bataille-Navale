@@ -4,7 +4,7 @@ class Bateau():
         self.vie = vie                                      # Le double tir au meme endroit sera bloqué
         self.Xposition = positionX
         self.Yposition = positionY
-        self.orientation = orientation                      # 0 = Horizontale, 1 = Verticale
+        self.orientation = orientation                     
         
 
     

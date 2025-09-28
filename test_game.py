@@ -4,11 +4,8 @@ import sys
 
 
 game = Game()
-game.dessiner_grille_dev(game.grilleJ1)
 
-
-
-
+game.choix_bateaux(game.grilleJ1)
 
 
 
@@ -29,5 +26,5 @@ while True:
             game.grilleJ1.est_touche(ligne, colonne)
 
             # Rafraîchir uniquement après le clic
-            game.dessiner_grille_dev(game.grilleJ1)
+            game.dessiner_grille_actu(game.grilleJ1)
             

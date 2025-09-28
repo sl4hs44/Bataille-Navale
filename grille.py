@@ -7,7 +7,7 @@ class Grille():
         self.taille = 10
         self.matrice = [['~' for k in range(self.taille)] for k in range(self.taille)]
 
-        self.liste_bateaux_a_placer= [5, 4, 3, 3, 2]
+        self.liste_bateaux_a_placer= [0, 5, 4, 3, 3, 2]                        # 0 permet de quitter la boucle de paramétrage (positionnement des bateaux)
 
 
 
@@ -35,12 +35,4 @@ class Grille():
         return True
     
     
-    def dessiner_bateau(self):
-        taille = self.liste_bateaux_a_placer.pop()
-        texte = font.render(f"Bateau à placer ({taille} cases)", True, TEXTE)
-        screen.blit(texte, (10, grille_taille*taille_case + 10))
-        for i in range(taille):
-            x = 10 + i*taille_case
-            y = grille_taille*taille_case + 30
-            pygame.draw.rect(screen, BATEAU, (x, y, taille_case, taille_case))
-            pygame.draw.rect(screen, NOIR, (x, y, taille_case, taille_case), 1)
+    
