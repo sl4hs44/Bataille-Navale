@@ -58,7 +58,7 @@ class Game():
                         couleur =  self.TOUCHE
                     elif  grille.matrice[i][j] == 'O':
                         couleur =  self.RATE
-                    pygame.draw.rect( self.screen, couleur, (j* self.taille_case, i* self.taille_case, self.taille_case,  self.taille_case))
+                    pygame.draw.rect( self.screen, couleur, (j* self.taille_case, i* self.taille_case, self.taille_case, self.taille_case))
                     pygame.draw.rect( self.screen, (0,0,0), (j* self.taille_case, i* self.taille_case, self.taille_case, self.taille_case), 1)
 
 

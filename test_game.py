@@ -39,7 +39,7 @@ while True:
             time.sleep(0.2)
             game.tir_auto(game.grilleJ1)
             game.dessiner_grille_actu(game.grilleJ1)
-            time.sleep(1)
+            time.sleep(1.5)
             game.dessiner_grille_actu(game.grilleOrdi)
 
             

@@ -12,6 +12,8 @@ class Grille():
 
 
     def already_tir(self, x, y):
+        if x >= self.taille or y >= self.taille:                       
+            return True
         if self.matrice[x][y] == 'B' or self.matrice[x][y] == '~':
             return False
         else:
