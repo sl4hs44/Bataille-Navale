@@ -1,2 +1,7 @@
-pytest==8.3.3
-pygame==2.5.2
+# Jeu Bataille Navale
+pygame>=2.6.1          
+pytest>=8.4.2         
+
+# Notes :
+# - sys, time, random sont des modules standards de Python
+# - Compatible Python >= 3.10

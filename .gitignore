@@ -1,5 +1,5 @@
 # Environnements virtuels
-.venv/
+.venv-1/
 .env/
 
 # Fichiers Python compilés
