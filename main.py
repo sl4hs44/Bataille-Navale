@@ -4,20 +4,21 @@ import sys
 import time
 
 
-game = Game()
+game = Game()                                                                   # Initialisation de la partie
 
-game.choix_bateaux(game.grilleJ1)
-game.grilleOrdi.positionnement_bateaux_aleatoire()
-
-
+game.choix_bateaux(game.grilleJ1)                                               # Partie positionnement des bateaux Joueurs
+game.grilleOrdi.positionnement_bateaux_aleatoire()                              # Positionnement automatique et aléatoire du bateaux Ordi
 
 
 
-game.dessiner_grille_actu(game.grilleJ1)
-game.dessiner_grille_actu(game.grilleOrdi)
 
 
-runJ1 = True
+game.dessiner_grille_actu(game.grilleJ1)                                        # Afficahge grille Joueur complète
+time.sleep(1)
+game.dessiner_grille_actu(game.grilleOrdi)                                      # Affichage grille Ordi pour jeu
+
+
+runJ1 = True                                                                    # Variables indicatrices de défaites/victoires
 runOrdi = True
 while runJ1 and runOrdi:
     for event in pygame.event.get():
@@ -54,7 +55,7 @@ while runJ1 and runOrdi:
 
 
 
-if runOrdi:
+if runOrdi:                                                                     # Affichage victoire ou défaite
     game.dessiner_fin(0)
 else:
     game.dessiner_fin(1)

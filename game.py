@@ -182,7 +182,7 @@ class Game():
         # mémoriser le nombre de bateaux détruits avant le tir
         nb_detruits_avant = len(grille.liste_bateaux_detruits)
 
-        # choisir la case
+        # CAS : impossible de définir une direction mais déjà un hit
         if len(self.hits) == 1:
             ligne, colonne = self.hits[0]
             candidates = []
@@ -205,6 +205,7 @@ class Game():
                 if touche:
                     self.hits=[(ligne, colonne)]
 
+        # Possible de définir une direction
         elif len(self.hits) > 1:
             # Déduire la direction si on a 2 hits
             if len(self.hits) == 2:
@@ -234,7 +235,7 @@ class Game():
                 touche = grille.est_touche(ligne, colonne)
                 if touche:
                     self.hits=[(ligne, colonne)]
-
+        # Pas de navire touché ultériement
         else:
             ligne, colonne = self.tir_aleatoire(grille)
             touche = grille.est_touche(ligne, colonne)

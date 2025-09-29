@@ -8,5 +8,5 @@ game = Game()
 
 
 
-# Pas/peu de test unitaire simple sur game car elle gère la fenêtre pygame. 
+# Pas de test unitaire simple sur game car elle gère la fenêtre pygame. 
 # J'utilise donc le debuggeur pour cela
