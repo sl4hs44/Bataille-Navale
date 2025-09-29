@@ -16,8 +16,3 @@ class Bateau():
                 cle = str(self.Xposition+k)+';'+str(self.Yposition )
                 self.dico_pos[cle] = ''
 
-
-
-        
-    def est_detruit(self):
-        pass
