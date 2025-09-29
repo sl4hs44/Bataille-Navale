@@ -76,6 +76,7 @@ class Game():
 
 
     def choix_bateaux(self, grille : Grille):
+        possible_position = True
         taille = grille.liste_bateaux_a_placer.pop()
         while taille !=0 :
             for event in pygame.event.get():
@@ -92,8 +93,9 @@ class Game():
                         if taille != 0:
                             ligne = y // self.taille_case
                             colonne = x // self.taille_case
-                            grille.positionnement_bateaux(ligne, colonne, taille, self.orientation)
-                            taille = grille.liste_bateaux_a_placer.pop()
+                            possible_position = grille.positionnement_bateaux(ligne, colonne, taille, self.orientation)
+                            if possible_position:
+                                taille = grille.liste_bateaux_a_placer.pop()
 
 
 
