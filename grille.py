@@ -60,5 +60,11 @@ class Grille():
             if self.positionnement_bateaux(ligne, colonne, taille, orientation):
                 taille = self.liste_bateaux_a_placer.pop()
 
+
+    def isnot_over(self):
+        if len(self.liste_bateaux_detruits) == 5:
+            return False
+        else:
+            return True
     
     

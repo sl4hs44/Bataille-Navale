@@ -119,6 +119,23 @@ class Game():
                 pygame.draw.rect(self.screen, (0, 0, 0), (x, y, taille_case_mini, taille_case_mini), 1)
 
 
+    def dessiner_fin(self, index):
+        self.screen.fill((0, 0, 0))
+        # Choisir le texte et la couleur
+        if index == 1:
+            message = "Victoire !"
+            couleur = (0, 255, 0)                                   # vert
+        else:
+            message = "Défaite..."
+            couleur = (255, 0, 0)                                   # rouge
+
+        font_fin = pygame.font.SysFont(None, 80)
+        texte = font_fin.render(message, True, couleur)
+        rect = texte.get_rect(center=(self.largeur // 2, self.hauteur // 2))
+        self.screen.blit(texte, rect)
+        pygame.display.flip()
+
+
     def choix_bateaux(self, grille : Grille):
         possible_position = True
         taille = grille.liste_bateaux_a_placer.pop()

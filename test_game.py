@@ -16,7 +16,10 @@ game.grilleOrdi.positionnement_bateaux_aleatoire()
 game.dessiner_grille_actu(game.grilleJ1)
 game.dessiner_grille_actu(game.grilleOrdi)
 
-while True:
+
+runJ1 = True
+runOrdi = True
+while runJ1 and runOrdi:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
@@ -41,6 +44,18 @@ while True:
             game.dessiner_grille_actu(game.grilleJ1)
             time.sleep(1.5)
             game.dessiner_grille_actu(game.grilleOrdi)
-
             
+            runJ1 = game.grilleJ1.isnot_over()
+            runOrdi = game.grilleOrdi.isnot_over()
+
+if runOrdi:
+    game.dessiner_fin(0)
+else:
+    game.dessiner_fin(1)
+              
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
             
