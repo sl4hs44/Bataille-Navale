@@ -28,3 +28,4 @@ while True:
             # Rafraîchir uniquement après le clic
             game.dessiner_grille_actu(game.grilleJ1)
             
+            

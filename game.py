@@ -19,7 +19,7 @@ class Game():
 
         # Generation de la grille pour le visuel
         pygame.init()
-        self.taille_case = 60
+        self.taille_case = 45
         self.grille_taille = 10
         self.largeur = self.taille_case *  self.grille_taille
         self.hauteur = self.largeur + 120
@@ -50,6 +50,7 @@ class Game():
     def dessiner_grille_actu(self, grille : Grille):
         self.screen.fill((0,0,0))
         self.dessiner_grille_dev(grille)
+        self.dessiner_indicatif_bateaux(grille)
         pygame.display.flip()
 
     def dessiner_bateau(self, taille):
@@ -73,6 +74,31 @@ class Game():
         txt_v = self.font.render("Verticale", True, self.NOIR)
         self.screen.blit(txt_v, (self.btn_v.x+10, self.btn_v.y+10))
 
+
+    def dessiner_indicatif_bateaux(self, grille: Grille):
+        x_base = 10
+        y_base = self.grille_taille * self.taille_case + 10
+
+        taille_case_mini = int(self.taille_case * 0.3)  # 30% de la taille normale
+        espacement = 10  # espace horizontal entre bateaux
+
+        for index, bateau in enumerate(grille.liste_bateaux):
+            # Couleur selon état
+            if bateau in grille.liste_bateaux_detruits:
+                couleur = self.TOUCHE   # rouge = détruit
+            else:
+                couleur = self.BATEAU   # gris = encore en jeu
+
+            # Position de départ pour ce bateau
+            start_x = x_base + index * (taille_case_mini + espacement)
+            start_y = y_base
+
+            # Dessiner le bateau sous forme de carrés alignés verticalement
+            for i in range(bateau.vie_init):
+                x = start_x
+                y = start_y + i * (taille_case_mini + 2)  # aligné verticalement
+                pygame.draw.rect(self.screen, couleur, (x, y, taille_case_mini, taille_case_mini))
+                pygame.draw.rect(self.screen, (0, 0, 0), (x, y, taille_case_mini, taille_case_mini), 1)
 
 
     def choix_bateaux(self, grille : Grille):
