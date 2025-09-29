@@ -1,6 +1,6 @@
 # Bataille Navale - Python / Pygame
 
-Un jeu de **Bataille Navale** développé en Python avec interface graphique Pygame, tir automatique intelligent, et possibilité de communiquer avec un Arduino via PySerial.
+Un jeu de **Bataille Navale** développé en Python avec interface graphique Pygame, tir automatique intelligent
 
 ---
 
