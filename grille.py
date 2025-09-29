@@ -11,6 +11,12 @@ class Grille():
         self.liste_bateaux_detruits = []
 
 
+    def already_tir(self, x, y):
+        if self.matrice[x][y] == 'B' or self.matrice[x][y] == '~':
+            return False
+        else:
+            return True
+
     def est_touche(self, x,y):
         if self.matrice[x][y] == 'B':
             self.matrice[x][y] = 'X'                                           # touché

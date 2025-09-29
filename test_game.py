@@ -26,13 +26,18 @@ while True:
             ligne = y // game.taille_case
             colonne = x // game.taille_case
             # Exemple : marquer un tir
-
-            game.grilleOrdi.est_touche(ligne, colonne)
+            if not(game.grilleOrdi.already_tir(ligne, colonne)):
+                game.grilleOrdi.est_touche(ligne, colonne)
+            else:
+                break
 
             # Rafraîchir uniquement après le clic
             game.dessiner_grille_actu(game.grilleOrdi)
         
             time.sleep(0.5)
+            game.dessiner_grille_actu(game.grilleJ1)
+            time.sleep(0.2)
+            game.tir_auto(game.grilleJ1)
             game.dessiner_grille_actu(game.grilleJ1)
             time.sleep(1)
             game.dessiner_grille_actu(game.grilleOrdi)

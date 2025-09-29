@@ -1,6 +1,7 @@
 from grille import Grille
 import pygame
 import sys
+import random as rd
 
 class Game():
     def __init__(self):
@@ -151,4 +152,12 @@ class Game():
 
 
 
+    def tir_auto(self, grille : Grille):
+        ligne = rd.randint(0,self.grille_taille - 1)
+        colonne = rd.randint(0,self.grille_taille - 1)
+        while grille.already_tir(ligne, colonne):
+            ligne = rd.randint(0,self.grille_taille - 1)
+            colonne = rd.randint(0,self.grille_taille - 1)
+        
+        grille.est_touche(ligne, colonne)
                 
