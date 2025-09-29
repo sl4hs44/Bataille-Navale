@@ -9,11 +9,11 @@ class Bateau():
         self.dico_pos = {}
         
         for k in range(vie):
-            if orientation == 'horizontale':
-                cle = str(self.Xposition + k)+';'+str(self.Yposition)
+            if orientation == 'horizontal':
+                cle = str(self.Xposition)+';'+str(self.Yposition+k)
                 self.dico_pos[cle] = ''
             else:
-                cle = str(self.Xposition)+';'+str(self.Yposition + k)
+                cle = str(self.Xposition+k)+';'+str(self.Yposition )
                 self.dico_pos[cle] = ''
 
 

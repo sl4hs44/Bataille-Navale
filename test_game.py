@@ -5,13 +5,13 @@ import sys
 
 game = Game()
 
-game.choix_bateaux(game.grilleJ1)
+#game.choix_bateaux(game.grilleJ1)
+game.grilleJ1.positionnement_bateaux_aleatoire()
 
 
 
 
-
-
+game.dessiner_grille_actu(game.grilleJ1)
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:

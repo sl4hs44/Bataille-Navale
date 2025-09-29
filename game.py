@@ -28,7 +28,7 @@ class Game():
         self.font = pygame.font.SysFont(None, 28)
 
         # Zones des boutons
-        self.orientation ='horizontale'
+        self.orientation ='horizontal'
         self.btn_h = pygame.Rect(10, self.grille_taille*self.taille_case + 60, 120, 40)
         self.btn_v = pygame.Rect(150, self.grille_taille*self.taille_case + 60, 120, 40)
 
@@ -66,12 +66,12 @@ class Game():
     def dessiner_boutons(self):
         # Bouton Horizontale
         pygame.draw.rect(self.screen, self.GRIS_CLAIR if self.orientation=="horizontal" else self.GRIS, self.btn_h)
-        txt_h = self.font.render("Horizontale", True, self.NOIR)
+        txt_h = self.font.render("Horizontal", True, self.NOIR)
         self.screen.blit(txt_h, (self.btn_h.x+10, self.btn_h.y+10))
 
         # Bouton Verticale
         pygame.draw.rect(self.screen, self.GRIS_CLAIR if self.orientation=="vertical" else self.GRIS, self.btn_v)
-        txt_v = self.font.render("Verticale", True, self.NOIR)
+        txt_v = self.font.render("Vertical", True, self.NOIR)
         self.screen.blit(txt_v, (self.btn_v.x+10, self.btn_v.y+10))
 
 

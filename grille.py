@@ -44,6 +44,13 @@ class Grille():
     
 
     def positionnement_bateaux_aleatoire(self):
-        pass
+        taille = self.liste_bateaux_a_placer.pop()
+        while taille != 0:
+            orientation = rd.choice(["horizontal", "vertical"])
+            ligne = rd.randint(0, self.taille - 1)
+            colonne = rd.randint(0, self.taille - 1)
+            if self.positionnement_bateaux(ligne, colonne, taille, orientation):
+                taille = self.liste_bateaux_a_placer.pop()
+
     
     
