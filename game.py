@@ -6,6 +6,7 @@ class Game():
     def __init__(self):
         # Initialisation des Joueurs
         self.grilleJ1 = Grille()
+        self.grilleOrdi = Grille()
 
 
         self.EAU = (0, 105, 148)
@@ -34,24 +35,40 @@ class Game():
 
 
     def dessiner_grille_dev(self, grille : Grille):                     # Dessiner 'DEV' car elle montre la position des bateaux
-        for i in range( self.grille_taille):
-            for j in range( self.grille_taille):
-                couleur =  self.EAU
-                if grille.matrice[i][j] == 'B':
-                    couleur = self.BATEAU
-                elif  grille.matrice[i][j] == 'X':
-                    couleur =  self.TOUCHE
-                elif  grille.matrice[i][j] == 'O':
-                    couleur =  self.RATE
-                pygame.draw.rect( self.screen, couleur, (j* self.taille_case, i* self.taille_case, self.taille_case,  self.taille_case))
-                pygame.draw.rect( self.screen, (0,0,0), (j* self.taille_case, i* self.taille_case, self.taille_case, self.taille_case), 1)
-        
+        if grille == self.grilleJ1:
+            for i in range( self.grille_taille):
+                for j in range( self.grille_taille):
+                    couleur =  self.EAU
+                    if grille.matrice[i][j] == 'B':
+                        couleur = self.BATEAU
+                    elif  grille.matrice[i][j] == 'X':
+                        couleur =  self.TOUCHE
+                    elif  grille.matrice[i][j] == 'O':
+                        couleur =  self.RATE
+                    pygame.draw.rect( self.screen, couleur, (j* self.taille_case, i* self.taille_case, self.taille_case,  self.taille_case))
+                    pygame.draw.rect( self.screen, (0,0,0), (j* self.taille_case, i* self.taille_case, self.taille_case, self.taille_case), 1)
+        else:
+            for i in range( self.grille_taille):
+                for j in range( self.grille_taille):
+                    couleur =  self.EAU
+                    if grille.matrice[i][j] == 'B':
+                        couleur = self.EAU
+                    elif  grille.matrice[i][j] == 'X':
+                        couleur =  self.TOUCHE
+                    elif  grille.matrice[i][j] == 'O':
+                        couleur =  self.RATE
+                    pygame.draw.rect( self.screen, couleur, (j* self.taille_case, i* self.taille_case, self.taille_case,  self.taille_case))
+                    pygame.draw.rect( self.screen, (0,0,0), (j* self.taille_case, i* self.taille_case, self.taille_case, self.taille_case), 1)
+
+
 
     def dessiner_grille_actu(self, grille : Grille):
         self.screen.fill((0,0,0))
         self.dessiner_grille_dev(grille)
-        self.dessiner_indicatif_bateaux(grille)
+        self.dessiner_indicatif_bateaux(self.grilleJ1, 0)
+        self.dessiner_indicatif_bateaux(self.grilleOrdi, 310)
         pygame.display.flip()
+
 
     def dessiner_bateau(self, taille):
             texte = self.font.render(f"Bateau à placer ({taille} cases)", True, self.TEXTE)
@@ -75,8 +92,8 @@ class Game():
         self.screen.blit(txt_v, (self.btn_v.x+10, self.btn_v.y+10))
 
 
-    def dessiner_indicatif_bateaux(self, grille: Grille):
-        x_base = 10
+    def dessiner_indicatif_bateaux(self, grille: Grille, ecart):
+        x_base = 10 + ecart
         y_base = self.grille_taille * self.taille_case + 10
 
         taille_case_mini = int(self.taille_case * 0.3)  # 30% de la taille normale
