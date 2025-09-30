@@ -78,13 +78,13 @@ class Game():
 
     def dessiner_bateau(self, taille):
         # Affichage du bateaux à placer lors de l'initialisation
-        texte = self.font.render(f"Bateau à placer ({taille} cases)", True, self.TEXTE)
-        self.screen.blit(texte, (310, self.grille_taille*self.taille_case + 17))
+        texte = self.font.render(f"Bateau à placer", True, self.TEXTE)
+        self.screen.blit(texte, (290, self.grille_taille*self.taille_case + 17))
         for i in range(taille):
-            x = 10 + i*self.taille_case + 300
-            y = self.grille_taille*self.taille_case + 40
-            pygame.draw.rect(self.screen, self.BATEAU, (x, y, self.taille_case, self.taille_case))
-            pygame.draw.rect(self.screen, self.NOIR, (x, y, self.taille_case, self.taille_case), 1)
+            x = int(i*self.taille_case*0.5 + 300)
+            y = int(self.grille_taille*self.taille_case + 40)
+            pygame.draw.rect(self.screen, self.BATEAU, (x, y, int(self.taille_case*0.45), int(self.taille_case*0.45)))
+            pygame.draw.rect(self.screen, self.NOIR, (x, y, int(self.taille_case*0.45), int(self.taille_case*0.45)), 1)
 
 
     def dessiner_boutons(self):
