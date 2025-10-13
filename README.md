@@ -2,6 +2,8 @@
 
 Un jeu de **Bataille Navale** développé en Python avec interface graphique Pygame, tir automatique intelligent
 
+---
+
 ## Fonctionnalités
 
 - Grille de 10x10 affichée avec **Pygame**
